@@ -1,0 +1,91 @@
+# Team Lead Engineer — Technical Assessment - questions
+===========
+Question 1.
+===========
+A client reports that conversion dropped about 20% after our last deploy. Our stack includes Shopify, CheckoutChamp CRM, our dashboards, and a new A/B sales funnel (Checkout + 3 Upsell/Downsell pages).
+ 
+> In 3–6 short steps, how would you run the investigation? 
+(what would you do, in what order, and who would own what if you have a small team)
+
+> What’s the first place you’d look in our stack and why?
+
+
+
+===========
+Question 2.
+===========
+The team is using AI coding tools.
+
+> What guidelines or guardrails would you set so AI use improves quality and speed without increasing risk?
+(e.g. review requirements, testing, security)
+
+
+
+===========
+Question 3.
+===========
+You have 2 engineers with bandwidth for 6 weeks to deliver: client portal + internal dashboard + payment routing prototype.
+
+> What do you build first, what do you defer, and why?
+> Provide a 6-week plan with milestones and risks.
+
+
+
+
+
+
+
+
+
+
+===========
+# Task 1. Code in attached repo (5 min)
+===========
+Open `codebase/routes/orders.js` (your version after fixes).
+
+> In your own words: what was wrong with the original `syncOrder` logic (before your fixes), and why did those issues matter for production?
+> What did you change first and why that order?
+
+
+
+===========
+# Task 2. Code in attached repo (5 min)
+===========
+Open `codebase/routes/funnel.js`. Reference original file for this question; Just review it.
+
+> List 2–3 specific risks or bugs in `recordFunnelStep` (security, correctness, or reliability). Be specific (e.g. “X could happen because Y”).
+> What would you add or change first before this code goes to production, and why that order?
+
+
+
+===========
+# Task 3 Simple Site/App (30min-1hr)
+===========
+Here is a free MUSIC API
+
+https://www.theaudiodb.com/api_guide.php
+Key: 661239
+
+> Build a simple site/app where a user can search an artist by using keywords. 
+> Quick actions: User clicks on the Artist, have it display Albums list plus any other information you want to showcase. 
+> Be Creative!
+
+
+Notes:
+Do NOT spend more than 1hour
+DO NOT PAY FOR API ACCESS - USE KEY ABOVE
+
+You do NOT have to implement all features available for this API project!
+You are welcomed to choose the ones that could show your skills in the allotted time.
+
+
+
+
+
+
+================
+# Deliverables #
+================
+Once you've completed questions and tasks, please send back your task projects and answers to the questions via zip or git repo. 
+We will review task projects locally
+

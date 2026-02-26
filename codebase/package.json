@@ -1,0 +1,13 @@
+{
+  "name": "revboost-technical",
+  "version": "1.0.0",
+  "description": "Orders + funnel app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/run.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
