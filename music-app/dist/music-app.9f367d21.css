@@ -1,0 +1,492 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: background-color .3s, color .3s;
+}
+
+html[data-theme="dark"], html[data-theme="dark"] body {
+  color: #e0e0e0;
+  background-color: #1a1a1a;
+}
+
+html[data-theme="dark"] .app-container {
+  background-color: #1a1a1a;
+}
+
+html[data-theme="dark"] .content {
+  color: #e0e0e0;
+  background-color: #242424;
+}
+
+html[data-theme="dark"] .navigation {
+  background: #1a1a1a;
+  border-top-color: #333;
+}
+
+html[data-theme="dark"] .nav-tab {
+  color: #888;
+  background: #1a1a1a;
+}
+
+html[data-theme="dark"] .nav-tab:hover {
+  color: #667eea;
+  background-color: #333;
+}
+
+html[data-theme="dark"] .nav-tab.active {
+  color: #667eea;
+}
+
+.app-container {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.content {
+  background: #fff;
+  flex: 1;
+  transition: background-color .3s, color .3s;
+  overflow-y: auto;
+}
+
+.navigation {
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  gap: 0;
+  transition: background-color .3s, border-color .3s;
+  display: flex;
+  box-shadow: 0 -2px 8px #0000001a;
+}
+
+html[data-theme="dark"] .navigation {
+  border-top-color: #333;
+  box-shadow: 0 -2px 8px #0000004d;
+}
+
+.nav-tab {
+  cursor: pointer;
+  color: #999;
+  background: #fff;
+  border: none;
+  border-bottom: 3px solid #0000;
+  flex: 1;
+  padding: 15px;
+  font-size: .95rem;
+  font-weight: 500;
+  transition: all .3s;
+}
+
+.nav-tab:hover {
+  color: #667eea;
+  background-color: #f9f9f9;
+}
+
+.nav-tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.home-screen {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+html[data-theme="dark"] h1 {
+  color: #e0e0e0;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+html[data-theme="dark"] h2 {
+  color: #e0e0e0;
+}
+
+h3 {
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+html[data-theme="dark"] h3 {
+  color: #e0e0e0;
+}
+
+.search-box {
+  justify-content: center;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.search-input {
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: border-color .3s, background-color .3s, color .3s;
+}
+
+html[data-theme="dark"] .search-input {
+  color: #e0e0e0;
+  background-color: #333;
+  border-color: #555;
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.back-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #667eea;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.back-btn:hover {
+  background-color: #5568d3;
+}
+
+.artists-list {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  display: grid;
+}
+
+.artist-card {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform .3s, box-shadow .3s, background-color .3s, border-color .3s;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .artist-card {
+  background: #333;
+  border-color: #555;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px #0000001a;
+}
+
+html[data-theme="dark"] .artist-card:hover {
+  box-shadow: 0 4px 12px #0000004d;
+}
+
+.artist-card img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.artist-card h3 {
+  color: #333;
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+html[data-theme="dark"] .artist-card h3 {
+  color: #e0e0e0;
+}
+
+.artist-card .country, .artist-card .genre {
+  color: #666;
+  margin: 5px 0;
+  font-size: .9rem;
+}
+
+html[data-theme="dark"] .artist-card .country, html[data-theme="dark"] .artist-card .genre {
+  color: #aaa;
+}
+
+.artist-image {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.artist-info {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: .95rem;
+}
+
+html[data-theme="dark"] .artist-info {
+  color: #aaa;
+}
+
+.biography {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+html[data-theme="dark"] .biography {
+  color: #ccc;
+}
+
+.albums-grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+  display: grid;
+}
+
+.album-card {
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.album-card h4 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.release-date {
+  opacity: .9;
+  margin: 0;
+  font-size: .9rem;
+}
+
+.loading {
+  text-align: center;
+  color: #667eea;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #c33;
+  background-color: #fee;
+  border: 1px solid #f99;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+html[data-theme="dark"] .error-message {
+  color: #f99;
+  background-color: #4a2a2a;
+  border-color: #8a5a5a;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+}
+
+html[data-theme="dark"] .no-results {
+  color: #888;
+}
+
+@media (width <= 768px) {
+  .artists-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .albums-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.settings-screen {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.settings-screen h1 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+html[data-theme="dark"] .settings-screen h1 {
+  color: #e0e0e0;
+}
+
+.settings-section {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+html[data-theme="dark"] .settings-section {
+  border-bottom-color: #444;
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+}
+
+.settings-section h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.setting-item {
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  display: flex;
+}
+
+.setting-item label:first-of-type {
+  color: #333;
+  font-weight: 500;
+}
+
+html[data-theme="dark"] .setting-item label:first-of-type {
+  color: #e0e0e0;
+}
+
+.toggle-switch {
+  cursor: pointer;
+  width: 50px;
+  height: 26px;
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: all .4s;
+  position: absolute;
+  inset: 0;
+}
+
+.slider:before {
+  content: "";
+  background-color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  transition: all .4s;
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+}
+
+input:checked + .slider {
+  background-color: #667eea;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.settings-section p {
+  color: #666;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+html[data-theme="dark"] .settings-section p {
+  color: #aaa;
+}
+
+.settings-section a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.settings-section a:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=music-app.9f367d21.css.map */
