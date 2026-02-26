@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Parcel bundler (music-app)
+music-app/.parcel-cache/
+music-app/dist/
+music-app/build/
+
+# Dependencies (covered above, but explicit for music-app)
+music-app/node_modules/
